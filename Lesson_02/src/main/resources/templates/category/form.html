@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Продукты - Категории</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div th:replace="~{fragments/header::header}">Header</div>
+
+    <h1 th:text="${category.id} == null ? 'Добавление категории' : 'Редактирование категории'">Добавление/Редактирование
+        категории</h1>
+
+    <div th:replace="~{fragments/violations::violations}"></div>
+
+    <form action="#" th:action="@{/category}" th:object="${category}" method="post">
+        <div th:if="${category.id != null}" class="form-group">
+            <input type="number" th:field="*{id}" hidden>
+        </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Наименование категории</label>
+            <input th:field="*{name}" id="title" type="text" class="form-control" aria-describedby="emailHelp"
+                   placeholder="Укажите наименование">
+<br>
+            <div class="mb-3">
+                <label class="form-label">Существующие категории</label>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="category : ${categories}">
+                        <td th:text="${category.id}"/>
+                        <td th:text="${category.name}"/>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+
+    <div th:replace="~{fragments/footer::footer}">Footer</div>
+</div>
+
+</body>
+</html>

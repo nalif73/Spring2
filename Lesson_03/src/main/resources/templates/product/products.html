@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Продукты</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-15 mb-15">
+    <div th:replace="~{fragments/header::header}">Header</div>
+
+    <h1>Продукты</h1>
+    <div class="container">
+        <div class="d-flex flex-row mt-5 mb-5">
+            <div th:each="product : ${products}" class="card mr-2" style="width: 18rem;">
+                <img th:src="@{${product.imageLink}}" class="card-img-top" alt="Фото продукта">
+                <div class="card-body">
+                    <h5 th:text="${product.name}" class="card-title">Имя продукта</h5>
+                    <p th:text="'Цена: ' + ${product.price} + ' руб.'" class="card-text">Цена/p>
+                    <p th:text="'Категория: ' + ${product.productCategory.getName()}" class="card-text">Категория</p>
+                    <div class="justify-content">
+                        <a th:href="@{/cart/add-to-cart(id=${product.id})}" href="#" class="btn btn-primary mb-2">В
+                            корзину</a>
+                        <a th:href="@{/product/form(id=${product.id})}" sec:authorize="hasAnyRole('ADMIN', 'MANAGER')"
+                           href="#" class="btn btn-primary">Редактировать</a>
+                        <a th:href="@{/product/delete(id=${product.id})}" sec:authorize="hasRole('ADMIN')"
+                           class="btn btn-danger">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form method="GET" th:action="@{/product/minprice}">
+        <div>
+            <label for="priceField"> Фильтр по минимальной цене товаров </label>
+            <input type="number" id="priceField" step="0.1" name="price">
+        </div>
+        <button type="submit">Найти</button>
+    </form>
+    <br>
+    <form method="GET" th:action="@{/product/maxprice}">
+        <div>
+            <label for="priceField">Фильтр по максимальной цене товаров</label>
+            <input type="number" step="0.1" name="price">
+        </div>
+        <button type="submit">Найти</button>
+    </form>
+    <div th:replace="~{fragments/footer::footer}">
+        Footer
+    </div>
+  </div>
+</body>
+</html>

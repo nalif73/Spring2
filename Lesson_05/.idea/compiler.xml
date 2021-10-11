@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-service" />
+        <module name="config-server" />
+        <module name="eureka-client-02" />
+        <module name="eureka-client-01" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-server" target="11" />
+      <module name="common" target="11" />
+      <module name="config-server" target="8" />
+      <module name="dto-common" target="11" />
+      <module name="dto-consumer" target="11" />
+      <module name="dto-producer" target="11" />
+      <module name="eureka-client-01" target="8" />
+      <module name="eureka-client-02" target="8" />
+      <module name="eureka-feign-client" target="11" />
+      <module name="eureka-oauth2-feign-client" target="11" />
+      <module name="eureka-service" target="8" />
+      <module name="hystrix-client" target="11" />
+      <module name="not-cloud-rest-service" target="11" />
+      <module name="secured-client" target="11" />
+      <module name="simple-rest-template" target="11" />
+      <module name="spring-cloud" target="11" />
+      <module name="statistic-chain-service" target="11" />
+      <module name="web-client" target="1.8" />
+      <module name="wrapper" target="1.5" />
+      <module name="zuul-server" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-server" options="-parameters" />
+      <module name="common" options="" />
+      <module name="config-server" options="-parameters" />
+      <module name="dto-common" options="" />
+      <module name="dto-consumer" options="-parameters" />
+      <module name="dto-producer" options="-parameters" />
+      <module name="eureka-client-01" options="-parameters" />
+      <module name="eureka-client-02" options="-parameters" />
+      <module name="eureka-feign-client" options="-parameters" />
+      <module name="eureka-oauth2-feign-client" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="hystrix-client" options="-parameters" />
+      <module name="not-cloud-rest-service" options="-parameters" />
+      <module name="secured-client" options="-parameters" />
+      <module name="simple-rest-template" options="-parameters" />
+      <module name="spring-cloud" options="-parameters" />
+      <module name="statistic-chain-service" options="-parameters" />
+      <module name="web-client" options="-parameters" />
+      <module name="zuul-server" options="-parameters" />
+    </option>
+  </component>
+</project>

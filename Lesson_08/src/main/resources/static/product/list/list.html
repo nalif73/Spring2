@@ -1,0 +1,36 @@
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <button class="btn btn-outline-primary" ng-click="showProductInfo(product.id)">Посмотреть</button>
+            </td>
+<!--                        <td>-->
+<!--                            <button class="btn btn-outline-primary" ng-click="sendProduct(product)">SendProduct</button>-->
+<!--                        </td>-->
+        </tr>
+        </tbody>
+
+        <form novalidate ng-submit="saveProduct()">
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Наименование</label>
+                <input type="text" class="form-control" ng-model="newProduct.name" id="inputName" aria-describedby="titleHelp">
+            </div>
+            <div class="mb-3">
+                <label for="inputPrice" class="form-label">Цена</label>
+                <input type="number" class="form-control" ng-model="newProduct.price" id="inputPrice" aria-describedby="priceHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </table>
+</div>

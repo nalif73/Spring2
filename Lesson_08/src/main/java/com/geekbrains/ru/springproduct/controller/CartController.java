@@ -15,27 +15,27 @@ import org.springframework.web.servlet.view.RedirectView;
 @AllArgsConstructor
 public class CartController {
 
-    private final ProductService productService;
-
-    @GetMapping("")
-    public String showCart() {
-        return "cart/cart";
-    }
-
-    @GetMapping("/add-to-cart")
-    public RedirectView addToCart(@RequestParam Long id, @ModelAttribute ShopCart cart) {
-        ProductEntity product = productService.findById(id);
-        cart.addProduct(product);
-
-        return new RedirectView("/product");
-    }
-
-    @GetMapping("/remove-from-cart")
-    public RedirectView removeFromCart(@RequestParam Long id, @ModelAttribute ShopCart cart) {
-        ProductEntity product = productService.findById(id);
-        cart.removeProduct(product);
-
-        return new RedirectView("/cart");
-    }
+//    private final ProductService productService;
+//
+//    @GetMapping("")
+//    public String showCart() {
+//        return "cart/cart";
+//    }
+//
+//    @GetMapping("/add-to-cart")
+//    public RedirectView addToCart(@RequestParam Long id, @ModelAttribute ShopCart cart) {
+//        ProductEntity product = productService.findById(id);
+//        cart.addProduct(product);
+//
+//        return new RedirectView("/product");
+//    }
+//
+//    @GetMapping("/remove-from-cart")
+//    public RedirectView removeFromCart(@RequestParam Long id, @ModelAttribute ShopCart cart) {
+//        ProductEntity product = productService.findById(id);
+//        cart.removeProduct(product);
+//
+//        return new RedirectView("/cart");
+//    }
 
 }

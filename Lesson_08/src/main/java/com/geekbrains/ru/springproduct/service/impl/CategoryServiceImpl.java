@@ -40,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryEntity save(CategoryEntity category) {
-        return null;
+        return categoryRepository.save(category);
     }
 
     @Override
